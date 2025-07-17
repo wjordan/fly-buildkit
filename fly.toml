@@ -1,0 +1,9 @@
+build.image = "moby/buildkit:v0.23.2"
+mounts=[{source="buildkit_data", destination="/var/lib/buildkit"}]
+files=[{local_path="buildkitd.toml",guest_path="/etc/buildkit/buildkitd.toml"}]
+
+[[services]]
+internal_port = 1234
+ports = [{port=1234}]
+auto_start_machines = true
+auto_stop_machines = "stop"
